@@ -1,4 +1,4 @@
-### This is sample application which demonstrates the multi select dropdown component
+### This is a sample application which demonstrates the multi select dropdown component
 
 # Simple Angular Multi select dropdown
 
