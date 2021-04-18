@@ -1,0 +1,16 @@
+<div class="multiSelect"> 
+    <div class="selectBox" (click)="showDropDown=!showDropDown">
+        <span class="selectLabel">Select</span>
+        <i class="arrow down"></i>
+    </div>
+    <div class="dropdownList" *ngIf="showDropDown">        
+        <ul>
+            <li *ngIf="allowSearch" class="searchBox"><input type="textbox" placeholder="Search" [(ngModel)]="searchTerm" />
+            <span *ngIf="searchTerm !== ''" class="closeIcon" (click)="clearSearchTerm()">X</span></li>
+            <li class="dropdownOptions" *ngFor="let item of options | multiSelectFilter:searchTerm:searchBy">
+                <input type="checkbox" [checked]="selectedOptions.indexOf(item[optionValue]) >= 0" (change)="getSelectedOptions($event, item[optionValue])" /><span>{{item[optionLabel]}}</span>
+            </li>
+          </ul>
+    </div>
+    
+  </div>

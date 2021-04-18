@@ -1,0 +1,78 @@
+.multiSelect {
+    width: 320px;
+    position: relative;
+    display: inline-block;
+}
+.multiSelect li {
+    list-style: none;
+}
+.selectBox {    
+    width: 300px;
+    display: inline-block;
+    border: 1px solid #d3d3dd;
+    padding: 10px;
+    color: #a9a9a9;
+}
+.selectLabel {
+    width: 92%;
+    display: inline-block;
+}
+.arrow {
+    border: solid #d3d3dd;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    cursor: pointer;
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .dropdownList {
+      height: 300px;
+      position: absolute;
+  }
+  .dropdownList ul{
+      width: 320px;
+      padding: 0;
+      border: 1px solid #d3d3dd;
+      margin: 0;
+      height: 200px;
+      overflow-y: scroll;      
+  }
+  .dropdownList ul li.searchBox {
+      border-bottom: 1px solid #d3d3dd;
+  }
+  .dropdownList .searchBox input {
+    font-size: 12px;
+    border: 0 none;
+    width: 95%;
+    padding: 5px 0;
+    
+  }
+  .dropdownList .searchBox input:focus {
+      outline: none;
+  }
+  .dropdownList ul li{
+      padding: 10px;
+  }
+  .dropdownList ul li span{
+      padding-left: 5px;
+  }
+
+  .dropdownList ul li.dropdownOptions:hover{
+    background-color:#d3d3dd;
+}
+  .selectBox, .dropdownList ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;    
+  }
+  .closeIcon {
+      position: absolute;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #a9a9a9;
+
+  }
