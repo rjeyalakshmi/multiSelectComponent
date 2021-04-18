@@ -1,28 +1,77 @@
-# TestApp
+### This is sample application which demonstrates the multi select dropdown component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
+# Simple Angular Multi select dropdown
 
-## Development server
+Angular Multi select dropdown component for web applications. Easy to integrate and use.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Getting Started
+# Features
+- dropdown with multiple selction option.
+- bind to any custom JSON object just by specifiying the keys for both label and value.
+- search by either label or value.
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run the below command to install the component
+npm install mysimple-multi-select
 
-## Build
+And then include it in your module file as below.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```ts
+import { MultiSelectModule } from 'mysimple-multi-select';
+// ...
 
-## Running unit tests
+@NgModule({
+  imports: [
+    MultiSelectModule
+    // ...
+  ]
+  // ...
+})
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Usage
 
-## Running end-to-end tests
+```ts
+import { Component, OnInit } from '@angular/core';
+export class AppComponent implements OnInit{
+  isDropdownSearch = true; //Boolean value to enable/disable the search in multiselect dropdown.
+  //Sample data to be bound to the dropdown.
+  countries : any[] = [
+    {"label": "Afghanistan", "value": "AF"}, 
+     {"label": "land Islands", "value": "AX"}, 
+     {"label": "Albania", "value": "AL"}, 
+     {"label": "Algeria", "value": "DZ"}, 
+     {"label": "American Samoa", "value": "AS"}, 
+     {"label": "AndorrA", "value": "AD"}, 
+     {"label": "Angola", "value": "AO"}, 
+     {"label": "Anguilla", "value": "AI"}, 
+     {"label": "Antarctica", "value": "AQ"}, 
+     {"label": "Antigua and Barbuda", "value": "AG"}];
+     filterBy: string = "label"; //filterBy option will decide whether search can be performed by either label or value.
+     optionLabel: string = "label"; //Key which indicates the label of an option.
+     optionValue: string = "value"; //Key which indicates the value of an option.
+}
+```
+```html
+<multiSelect [options]="countries" 
+(onChanged)="getSelectedCountries($event)" 
+[allowSearch]="isDropdownSearch" 
+[searchBy]="filterBy"
+[optionLabel]="optionLabel"
+[optionValue]="optionValue" ></multiSelect>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Settings
 
-## Further help
+| Setting                        | Type       | Description                                                                             | 
+| :----------------------------- | :--------- | :---------------------------------------------------------------------------------------|
+| options                		 | Array<any> | An array of objects to display as the available                                         |                                                                                                                                            
+| allowSearch                    | Boolean    | Text to be show in the dropdown, when no items are selected.                            |
+| searchBy						 | String     | This will decide whether search can be performed by either label or value.              |
+| optionLabel                    | String     | Key which indicates the label of an option.                                             |
+| optionValue                    | String     | Key which indicates the value of an option.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# multiSelectComponent" 
+### Callback Methods
+- `onChanged` - Return the selected item when an item is checked.
+  Example : (onChanged)="getSelectedCountries($event)"                                                                                                                                                                                                                 
